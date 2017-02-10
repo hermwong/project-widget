@@ -6,29 +6,54 @@
         <h1>PhoneGap Desktop in Electron</h1>
         <script src="https://unpkg.com/vue/dist/vue.js"></script>
 
-        <div id="widget-root" style="border: solid 1px black">
+        <table id="widget-root" style="width: 500px; border: solid 1px black;">
 
-            <div id="widget-info">
-                <input type="label" id="widget-name" v-model="name">
-                <input type="label" id="widget-version" v-model="version">
-                <input type="image" id="widget-icon" v-link="icon">
-                <a id="widget-url" v-link="localPath">{{localPath}}</a>
-            </div>
+            <tr id="widget-info">
+                <td>
+                    <img class="icon" v-bind:src="icon"/>
+                </td>
+                <td>
+                    <input type="label" id="widget-name" v-model="name"><br/>
+                    <input type="label" id="widget-version" v-model="version">
+                </td>
+                <td>
+                    play
+                </td>
+            </tr>
+            <tr id="widget-path">
+                <td colspan="2">
+                    Local Path:<br/>
+                    <a id="widget-url" v-bind:href="localPath">{{localPath}}</a>
+                </td>
+                <td>
+                    stop
+                </td>
+            </tr>
 
-        </div>
+        </table>
 
-            <script>
-                new Vue({
-                    el: '#widget-root',
-                    data: {
-                        name: 'hello world',
-                        version: 'v1.0',
-                        icon: 'icon.png',
-                        localPath: 'http://www.google.com',
-                    }
-                })
-            </script>
+        <style>
+            td {
+                border: solid 1px black;
+                vertical-align: top;
+            }
+            .icon {
+                width: 64px;
+                height: 64px;
+            }
+        </style>
 
+        <script>
+            new Vue({
+                el: '#widget-root',
+                data: {
+                    name: 'hello world',
+                    version: 'v1.0',
+                    icon: 'icon.png',
+                    localPath: 'http://www.google.com',
+                }
+            })
+        </script>
 
     </body>
 </html>
