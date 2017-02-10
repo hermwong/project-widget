@@ -3,30 +3,29 @@
         <title>PhoneGap Desktop</title>
     </head>
     <body>
-        <h1>PhoneGap Desktop in Electron</h1>
         <script src="https://unpkg.com/vue/dist/vue.js"></script>
 
-        <table id="widget-root" style="width: 500px; border: solid 1px black;">
+        <table id="project-container" style="width: 500px; border: solid 1px black;">
 
-            <tr id="widget-info">
-                <td>
+            <tr id="project-info">
+                <td style="width: 64px;">
                     <img class="icon" v-bind:src="icon"/>
                 </td>
                 <td>
-                    <input type="label" id="widget-name" v-model="name"><br/>
-                    <input type="label" id="widget-version" v-model="version">
+                    <input type="label" id="project-name" v-model="name" readonly><br/>
+                    <input type="label" id="project-version" v-model="version" readonly>
                 </td>
                 <td>
-                    play
+                    serve button
                 </td>
             </tr>
-            <tr id="widget-path">
+            <tr id="project-link">
                 <td colspan="2">
                     Local Path:<br/>
-                    <a id="widget-url" v-bind:href="localPath">{{localPath}}</a>
+                    <a id="project-url" v-bind:href="localPath">{{localPath}}</a>
                 </td>
                 <td>
-                    stop
+                    stop button
                 </td>
             </tr>
 
@@ -37,6 +36,9 @@
                 border: solid 1px black;
                 vertical-align: top;
             }
+            input {
+                border: none;
+            }
             .icon {
                 width: 64px;
                 height: 64px;
@@ -45,7 +47,7 @@
 
         <script>
             new Vue({
-                el: '#widget-root',
+                el: '#project-container',
                 data: {
                     name: 'hello world',
                     version: 'v1.0',
