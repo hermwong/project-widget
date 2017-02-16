@@ -3,59 +3,12 @@
         <title>PhoneGap Desktop</title>
     </head>
     <body>
+        <h1>Hello World</h1>
+        <div id="root">
+            <project-list></project-list>
+        </div>
+
         <script src="https://unpkg.com/vue/dist/vue.js"></script>
-
-        <table id="project-container" style="width: 500px; border: solid 1px black;">
-
-            <tr id="project-info">
-                <td style="width: 64px;">
-                    <img class="icon" v-bind:src="icon"/>
-                </td>
-                <td>
-                    <input type="label" id="project-name" v-model="name" readonly><br/>
-                    <input type="label" id="project-version" v-model="version" readonly>
-                </td>
-                <td>
-                    serve button
-                </td>
-            </tr>
-            <tr id="project-link">
-                <td colspan="2">
-                    Local Path:<br/>
-                    <a id="project-url" v-bind:href="localPath">{{localPath}}</a>
-                </td>
-                <td>
-                    stop button
-                </td>
-            </tr>
-
-        </table>
-
-        <style>
-            td {
-                border: solid 1px black;
-                vertical-align: top;
-            }
-            input {
-                border: none;
-            }
-            .icon {
-                width: 64px;
-                height: 64px;
-            }
-        </style>
-
-        <script>
-            new Vue({
-                el: '#project-container',
-                data: {
-                    name: 'hello world',
-                    version: 'v1.0',
-                    icon: 'icon.png',
-                    localPath: 'http://www.google.com',
-                }
-            })
-        </script>
-
+        <script src="project-list.js"></script>
     </body>
 </html>
