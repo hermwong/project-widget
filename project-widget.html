@@ -4,11 +4,64 @@
     </head>
     <body>
         <h1>Hello World</h1>
+
         <div id="root">
             <project-list></project-list>
         </div>
 
+        <template id="project-list">
+            <table>
+                <tbody>
+                    <tr is="project-list-item" v-for="item in projects" :item="item"></tr>
+                </tbody>
+            </table>
+        </template>
+
+        <template id="project-list-item">
+            <table id="project-container" style="width: 500px; border: solid 1px black;">
+
+                <tr id="project-info">
+                    <td>
+                        <img class="icon" v-bind:src="item.icon" width="64px;"/>
+                    </td>
+                    <td>
+                        <input type="label" id="project-name" v-model="item.name" readonly><br/>
+                        <input type="label" id="project-version" v-model="item.version" readonly>
+                    </td>
+                    <td>
+                        serve button
+                    </td>
+                </tr>
+                <tr id="project-link">
+                    <td colspan="2">
+                        Local Path:<br/>
+                        <a id="project-url" v-bind:href="item.localPath">{{item.localPath}}</a>
+                    </td>
+                    <td>
+                        stop button
+                    </td>
+                </tr>
+
+            </table>
+        </template>
+
+
         <script src="https://unpkg.com/vue/dist/vue.js"></script>
         <script src="project-list.js"></script>
+
+        <style>
+           td {
+               border: solid 1px black;
+               vertical-align: top;
+           }
+           input {
+               border: none;
+           }
+           .icon {
+               width: 64px;
+               height: 64px;
+           }
+       </style>
+
     </body>
 </html>
